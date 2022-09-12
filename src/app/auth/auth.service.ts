@@ -21,6 +21,10 @@ export class AuthService {
             );
   }
 
+  signup(signupData: any): Observable<String> {
+    return this.http.post<String>(`${this.apiURL}/api/v1/auth/signup`, signupData);
+  }
+
   private setSession(authResult:User) {
     const principal = {
       id: authResult.id,

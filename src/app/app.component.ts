@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'uniquecare';
+  isOpen: boolean = false;
+
+  toggleNotification() {
+    this.isOpen = !this.isOpen;
+  }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CoderService } from 'src/app/services/coder.service';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +6,10 @@ import { CoderService } from 'src/app/services/coder.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private coderService: CoderService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getAllCoders();
-  }
-
-  public getAllCoders(): void {
-    this.coderService.getAll().subscribe(
-      (res) => {console.log(res)
-    });
+    //this.getAllCoders();
   }
 
 }

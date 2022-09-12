@@ -1,0 +1,52 @@
+<li class="col-span-1 divide-y divide-gray-200 bg-white shadow sm:rounded-lg">
+    <div class="p-6">
+        <div class="flex w-full items-center justify-between space-x-6">
+            <div class="flex-1 truncate">
+                <div class="flex items-center space-x-3">
+                    <h3 class="truncate text-sm font-semibold text-gray-600">Home Assistance for your cats</h3>
+                </div>
+                <p class="mt-1 truncate text-sm text-gray-500">John Doe</p>
+            </div>
+            <span class="text-xl font-bold text-gray-600">$15</span>
+            <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                alt="">
+        </div>
+        <div class="py-3">
+            <p class="mt-1 text-sm text-gray-500">
+                {{
+                (description.length>250)? (description | slice:0:250)+'...':(description)
+                }}
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="-mt-px flex divide-x divide-gray-200">
+            <div class="flex w-0 flex-1">
+                <a href="mailto:janecooper@example.com"
+                    class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
+                    <!-- Heroicon name: mini/envelope -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="w-8 h-8 text-gray-400">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+
+                    <span class="ml-3">Send request</span>
+                </a>
+            </div>
+            <div class="-ml-px flex w-0 flex-1">
+                <a routerLink="/service-detail"
+                    class="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="w-8 h-8 text-gray-400">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+                    </svg>
+
+                    <span class="ml-3">More info</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</li>

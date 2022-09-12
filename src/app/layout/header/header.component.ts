@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  isOpen:boolean = false;
+
   constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -16,7 +18,11 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.auth.logout();
-    this.router.navigate(['/auth/login'], {queryParams: {loggedOut: 'success'}});
+    this.router.navigate(['/'], {queryParams: {loggedOut: 'success'}});
+  }
+
+  toggleDropdown(): void {
+    this.isOpen = !this.isOpen;
   }
 
 }

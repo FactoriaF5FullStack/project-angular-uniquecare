@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,28 +10,41 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  form: FormGroup;
+  form!: FormGroup;
+  errorMessage:string = "";
+  submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+  ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+      }
+    );
   }
 
-  login() {
-    const val = this.form.value;
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
 
-    if (val.username && val.password) {
+  onSubmit(): void {
+    const val = this.form.value;
+    this.submitted = true;
+
+    if (this.form.valid) {
       this.authService.login(val.username, val.password)
-        .subscribe(
-          () => {
-            console.log("User is logged in");
+        .subscribe({
+          next: () => {
             this.router.navigate(['/'], {queryParams: {loggedIn: 'success'}});
             // this.router.navigateByUrl('/');
+          },
+          error: ({ error }) => {
+            console.log(error.message);
+            this.errorMessage = error.message;
           }
-        );
+        });
     }
   }
 }

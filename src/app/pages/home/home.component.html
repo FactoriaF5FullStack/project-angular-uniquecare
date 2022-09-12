@@ -1,8 +1,5 @@
 <ul role="list" class="grid grid-cols-1 gap-6 md:grid-cols-2">
-    <app-service-item></app-service-item>
-    <app-service-item></app-service-item>
-    <app-service-item></app-service-item>
-    <app-service-item></app-service-item>
-    <app-service-item></app-service-item>
-    <app-service-item></app-service-item>
+    <li *ngFor="let facility of facilities">
+        <app-service-item [facility]="facility"></app-service-item>
+    </li>
 </ul>

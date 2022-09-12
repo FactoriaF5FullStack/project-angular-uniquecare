@@ -13,6 +13,8 @@ import { ServiceItemComponent } from './components/service-item/service-item.com
 import { BottomNavComponent } from './layout/bottom-nav/bottom-nav.component';
 import { ServiceDetailComponent } from './pages/service/service-detail/service-detail.component';
 import { ConfirmPasswordValidatorDirective } from './util/custom-validators/confirm-password-validator.directive';
+import { CreateComponent } from './pages/service/create/create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,13 @@ import { ConfirmPasswordValidatorDirective } from './util/custom-validators/conf
     BottomNavComponent,
     ServiceDetailComponent,
     ConfirmPasswordValidatorDirective,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthModule
   ],
   providers: [

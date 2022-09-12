@@ -1,13 +1,13 @@
-<li class="col-span-1 divide-y divide-gray-200 bg-white shadow sm:rounded-lg">
+<div class="col-span-1 divide-y divide-gray-200 bg-white shadow sm:rounded-lg">
     <div class="p-6">
         <div class="flex w-full items-center justify-between space-x-6">
             <div class="flex-1 truncate">
                 <div class="flex items-center space-x-3">
-                    <h3 class="truncate text-sm font-semibold text-gray-600">Home Assistance for your cats</h3>
+                    <h3 class="truncate text-sm font-semibold text-gray-600">{{ facility.name }}</h3>
                 </div>
-                <p class="mt-1 truncate text-sm text-gray-500">John Doe</p>
+                <p class="mt-1 truncate text-sm text-gray-500">{{ facility.owner.username }}</p>
             </div>
-            <span class="text-xl font-bold text-gray-600">$15</span>
+            <span class="text-xl font-bold text-gray-600">${{ facility.basePrice }}</span>
             <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
                 alt="">
@@ -15,7 +15,7 @@
         <div class="py-3">
             <p class="mt-1 text-sm text-gray-500">
                 {{
-                (description.length>250)? (description | slice:0:250)+'...':(description)
+                facility.description | slice:0:250
                 }}
             </p>
         </div>
@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="-ml-px flex w-0 flex-1">
-                <a routerLink="/service-detail"
+                <a routerLink="/service/{{facility.id}}"
                     class="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         class="w-8 h-8 text-gray-400">
@@ -49,4 +49,4 @@
             </div>
         </div>
     </div>
-</li>
+</div>

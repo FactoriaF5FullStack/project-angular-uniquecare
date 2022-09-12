@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Facility } from 'src/app/models/facility';
+import { FacilityService } from 'src/app/services/facility.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  facilities: Facility[] = [];
+
+  constructor(private facilityService: FacilityService) {}
 
   ngOnInit(): void {
-    //this.getAllCoders();
+    this.getAllFacilities();
+  }
+
+  getAllFacilities() {
+    this.facilityService.getAll().subscribe({
+      next: (res) => {
+        this.facilities = res;
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+    })
   }
 
 }

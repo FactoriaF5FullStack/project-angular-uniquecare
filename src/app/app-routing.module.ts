@@ -5,6 +5,7 @@ import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ServiceDetailComponent } from './pages/service/service-detail/service-detail.component';
+import { CreateComponent } from './pages/service/create/create.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     component: AppLayoutComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'service-detail', component: ServiceDetailComponent },
+      { path: 'service/:id', component: ServiceDetailComponent },
+      { path: 'new-service', component: CreateComponent, canActivate: [AuthGuard] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
     ]
   }
